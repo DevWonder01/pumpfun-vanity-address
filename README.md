@@ -1,9 +1,9 @@
-# Solana Vanity Address Generator
+# Pumpfun Vanity Address Generator
 
-This project is a fast CLI tool to generate Solana wallet addresses (public keys) with a custom prefix (vanity address), leveraging multithreading for speed.
+This project is a fast CLI tool to generate Pumpfun wallet addresses (public keys) with a custom prefix (vanity address), leveraging multithreading for speed.
 
 ## Features
-- Generates Solana addresses with a user-specified prefix
+- Generates Pumpfun addresses with a user-specified prefix
 - Multithreaded for high performance (using all CPU cores by default)
 - Outputs both the public address and private key
 
@@ -18,7 +18,7 @@ This project is a fast CLI tool to generate Solana wallet addresses (public keys
 2. **Clone this repository:**
    ```bash
    git clone <repo-url>
-   cd solana-vanity-address-rs
+   cd pumpfun-vanity-address
    ```
 
 3. **Build the project:**
@@ -34,7 +34,7 @@ Run the program with your desired prefix:
 cargo run --release -- --prefix <PREFIX>
 ```
 
-- Replace `<PREFIX>` with the string you want your Solana address to start with (case-sensitive).
+- Replace `<PREFIX>` with the string you want your Pumpfun address to start with (case-sensitive).
 - Optionally, specify the number of threads (defaults to all CPU cores):
 
 ```bash
@@ -47,7 +47,7 @@ cargo run --release -- --prefix <PREFIX> --threads 8
 cargo run --release -- --prefix Sol
 ```
 
-This will search for a Solana address starting with `Sol` using all available CPU cores.
+This will search for a Pumpfun address starting with `Sol` using all available CPU cores.
 
 ## Output
 - The program prints the matching address, the private key (in Base58 and bytes), and the time taken.
@@ -59,15 +59,15 @@ You can use this crate as a library in your own Rust project:
 Add to your `Cargo.toml`:
 
 ```toml
-solana-vanity = "0.1.0"
+pumpfun-vanity = "0.1.0"
 ```
 
 Example usage:
 
 ```rust
-use solana_vanity::find_vanity_address;
+use pumpfun_vanity::find_vanity_address;
 
-let result = find_vanity_address("Sol", 8);
+let result = find_vanity_address("pump", 8);
 println!("Address: {}", result.keypair.pubkey());
 ```
 
