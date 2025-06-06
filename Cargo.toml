@@ -1,11 +1,11 @@
 [package]
-name = "solana-vanity"
-version = "0.1.1"
+name = "pumpfun-vanity"
+version = "0.1.0"
 edition = "2024"
-description = "A fast CLI and library for generating Solana vanity addresses."
-authors = ["Kenny"]
+description = "A fast CLI and library for generating Pumpfun vanity addresses."
+authors = ["DevWonder01"]
 license = "MIT"
-repository = "https://github.com/devgreek/solana-vanity-address-rs"
+repository = "https://github.com/DevWonder01/pumpfun-vanity-address"
 
 [dependencies]
 solana-sdk = "2.1.1" # Use a recent version

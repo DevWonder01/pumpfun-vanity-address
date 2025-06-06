@@ -1299,6 +1299,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "pumpfun-vanity"
+version = "0.1.0"
+dependencies = [
+ "base64 0.22.1",
+ "bs58 0.4.0",
+ "clap",
+ "num_cpus",
+ "rayon",
+ "solana-sdk",
+]
+
+[[package]]
 name = "qstring"
 version = "0.7.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3025,18 +3037,6 @@ name = "solana-validator-exit"
 version = "2.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7bbf6d7a3c0b28dd5335c52c0e9eae49d0ae489a8f324917faf0ded65a812c1d"
-
-[[package]]
-name = "solana-vanity"
-version = "0.1.1"
-dependencies = [
- "base64 0.22.1",
- "bs58 0.4.0",
- "clap",
- "num_cpus",
- "rayon",
- "solana-sdk",
-]
 
 [[package]]
 name = "solana-vote-interface"

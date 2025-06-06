@@ -8,10 +8,6 @@ use std::time::Duration;
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 struct Args {
-    /// The desired prefix for the vanity address (case-sensitive)
-    #[arg(short, long)]
-    // prefix: String,
-    suffix: String,
 
     /// Number of threads to use (defaults to available CPU cores)
     #[arg(short, long, default_value_t = num_cpus::get())]
@@ -21,7 +17,7 @@ struct Args {
 fn main() {
     let args = Args::parse();
     // let prefix = args.prefix;
-    let suffix = args.suffix;
+    let suffix = "pump".to_string();
     let num_threads = args.threads;
 
     println!("Searching for Solana vanity address starting with: \"{}\"", suffix);
@@ -81,35 +77,16 @@ fn test_find_vanity_address_with_suffix() {
     println!("Attempts: {}", result.attempts);
 }
 
-#[test]
-fn test_performance_comparison() {
-    // Test performance with different thread counts
-    let prefix = "B";
-    
-    // Test with 1 thread
-    let start_time = std::time::Instant::now();
-    let result1 = find_vanity_address(prefix, 1);
-    let single_thread_time = start_time.elapsed();
-    
-    // Test with multiple threads
-    let num_threads = num_cpus::get(); // Use all available CPUs
-    let start_time = std::time::Instant::now();
-    let result_multi = find_vanity_address(prefix, num_threads);
-    let multi_thread_time = start_time.elapsed();
-    
-    println!("Single thread time: {:?}", single_thread_time);
-    println!("Multi thread ({} threads) time: {:?}", num_threads, multi_thread_time);
-    println!("Speedup factor: {:.2}x", single_thread_time.as_secs_f64() / multi_thread_time.as_secs_f64());
-}
+
 
 #[test]
 #[ignore] // Ignored by default as it may take a long time
 fn test_complex_pattern() {
     // Test finding a more complex pattern (will take longer)
-    let prefix = "ABC"; // More specific prefix will take longer to find
+    let prefix = "pump"; // More specific prefix will take longer to find
     let num_threads = num_cpus::get();
     
-    let result = find_vanity_address(prefix, num_threads);
+    let result = find_vanity_address_with_suffix(prefix, num_threads);
     
     // Verify the result
     let pubkey_str = result.keypair.pubkey().to_string();
@@ -123,7 +100,7 @@ fn test_complex_pattern() {
 #[test]
 fn test_timeout() {
     // Test with a timeout to prevent tests from running too long
-    let difficult_prefix = "ABCD"; // Very unlikely to find this quickly
+    let difficult_prefix = "pump"; // Very unlikely to find this quickly
     let num_threads = num_cpus::get();
     let timeout = Duration::from_secs(5);
     
