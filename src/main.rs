@@ -1,5 +1,5 @@
 use clap::Parser;
-use solana_vanity::{ find_vanity_address, find_vanity_address_with_suffix };
+use pumpfun_vanity::{ find_vanity_address, find_vanity_address_with_suffix };
 use std::{ sync::atomic::{ AtomicBool, Ordering }, time::Instant };
 use rayon::prelude::*;
 use solana_sdk::signer::Signer;
